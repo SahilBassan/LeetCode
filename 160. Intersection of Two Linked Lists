@@ -10,3 +10,52 @@ public class Solution {
     }
 }
 ---------------------------------------------------------------------
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode dummyA = headA;
+        ListNode dummyB = headB;
+        int lengthA = 0;
+        int lengthB = 0;
+        boolean entry1 = true;
+        boolean entry2 = true;
+        while(dummyA != null || dummyB != null){
+            while(entry1){
+                if(dummyA == null){
+                    entry1 = false;
+                    break;
+                }
+                lengthA++;
+                dummyA = dummyA.next;
+            }
+            while(entry2){
+                if(dummyB == null){
+                    entry2 = false;
+                    break;
+                }
+                lengthB++;
+                dummyB = dummyB.next;
+            }
+        }
+        dummyA = headA;
+        dummyB = headB;
+        int min = 0;
+        if(lengthA < lengthB){
+            min = lengthB - lengthA;
+            for(int i=0; i<min; i++){
+                dummyB = dummyB.next;
+            }
+        }else{
+            min = lengthA - lengthB;
+            for(int i=0; i<min; i++){
+                dummyA = dummyA.next;
+            }
+        }
+
+        while(dummyA != null && dummyB != null){
+            if(dummyA == dummyB) return dummyA;
+            dummyA = dummyA.next;
+            dummyB = dummyB.next;
+        }
+        return dummyA;
+    }
+}
