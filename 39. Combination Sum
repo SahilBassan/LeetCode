@@ -1,0 +1,28 @@
+class Solution {
+    public void subSeq(List<List<Integer>> arrll, List<Integer> arrl , int[] arr, int i, int target){
+        //base case
+        if(i == arr.length){
+            if(target == 0){
+                arrll.add(new ArrayList<>(arrl));
+            }
+            return;
+        }
+
+        //pick multiple times until it equals to target or greater than
+        if(arr[i] <= target){
+            arrl.add(arr[i]);
+            subSeq(arrll, arrl, arr, i, target - arr[i]);
+            //make sure to remove inside if statement only see tree for more clarification
+            arrl.remove(arrl.size() - 1);
+        }
+
+        //not pick
+        subSeq(arrll, arrl, arr, i+1, target);
+    }
+    //main method
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> arrll = new ArrayList<>();
+        subSeq(arrll, new ArrayList<>(), candidates, 0, target);
+        return arrll;
+    }
+}
