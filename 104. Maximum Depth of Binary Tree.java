@@ -1,6 +1,7 @@
 <a href = "https://www.youtube.com/watch?v=hTM3phVI6YQ"> NeetCode </a>
 
 class Solution {
+//Using iterative DFS
     public int maxDepth(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         Stack<Integer> depth = new Stack<>();
