@@ -1,4 +1,4 @@
-// <a href = "https://www.youtube.com/watch?v=hTM3phVI6YQ"> NeetCode </a>
+<a href = "https://www.youtube.com/watch?v=hTM3phVI6YQ"> NeetCode </a>
 
 class Solution {
     public int maxDepth(TreeNode root) {
@@ -25,17 +25,16 @@ class Solution {
 
 
 
-/* 
+
 //using recursive Depth First Search
 public int maxDepth(TreeNode root) {
     //base case
     if(root == null) return 0; 
     return 1 + Math.max(maxDepth(root.left) , maxDepth(root.right));
 } 
-*/
 
 
-/* 
+
 //using iterative Breadth First Search
 
 public int maxDepth(TreeNode root) {
@@ -58,11 +57,3 @@ public int maxDepth(TreeNode root) {
         }
         return level;
 } 
-
-*/
-
-
-
-
-
-
